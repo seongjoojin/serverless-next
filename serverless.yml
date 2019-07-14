@@ -1,0 +1,23 @@
+service: lambdaNext
+
+plugins:
+  - serverless-nextjs-plugin
+  - serverless-offline
+
+frameworkVersion: ">=1.21.0 <2.0.0"
+
+custom:
+  serverless-nextjs:
+    nextConfigDir: ./
+    assetsBucketName: assets.lambda.com
+
+provider:
+    name: aws
+    runtime: nodejs8.10
+    profile: lambda
+    stage: development
+    region: ap-northeast-2
+
+package:
+  exclude:
+    - ./**
